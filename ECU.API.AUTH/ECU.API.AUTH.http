@@ -1,0 +1,6 @@
+@ECU.API.AUTH_HostAddress = http://localhost:5199
+
+GET {{ECU.API.AUTH_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

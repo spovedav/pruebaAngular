@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=123456789!   # Contraseña para el usuario 'sa'
+    ports:
+      - "1433:1433"                      # Puerto para acceder a SQL Server
+    volumes:
+      - ./data:/var/opt/mssql            # Volumen para persistir datos en la carpeta "data"
+      - ./init.sql:/init.sql             # Script para inicializar la base de datos
+    networks:
+      - sqlnet
+    restart: always
+
+networks:
+  sqlnet:
+    driver: bridge

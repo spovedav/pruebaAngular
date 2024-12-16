@@ -1,0 +1,6 @@
+@ECU.API.MANTE_HostAddress = http://localhost:5251
+
+GET {{ECU.API.MANTE_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

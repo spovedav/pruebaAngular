@@ -1,0 +1,28 @@
+<div class="sidenav  d-flex justify-content-center">
+  <div class="login-main-text">
+    <h2>Login</h2>
+    <p>Login de prueba Double.</p>
+  </div>
+</div>
+<div class="main d-flex justify-content-center">
+  <div class="col-md-6 col-sm-12">
+    <div class="login-form">
+      <form (ngSubmit)="login()" >
+        <div class="mb-3">
+          <label for="Username" class="form-label">Example label</label>
+          <input [(ngModel)]="user" name="user" placeholder="Username" required type="text" class="form-control" id="user">
+        </div>
+        <div class="mb-3">
+          <label for="Password" class="form-label">Another label</label>
+          <input [(ngModel)]="password" name="password" placeholder="Password" type="text" class="form-control" id="password">
+        </div>
+        <button type="submit" class="btn btn-secondary">Login</button>
+
+        <!-- Mostrar mensaje de error -->
+        <div *ngIf="errorMessage" class="error-message">
+          {{ errorMessage }}
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
