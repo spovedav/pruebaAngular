@@ -4,16 +4,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IMG BACKEND", "IMG BACKEND", "{FA04474E-3493-4D02-8398-02C2BE928785}"
-	ProjectSection(SolutionItems) = preProject
-		Dockerfile = Dockerfile
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IMG FRONTEND", "IMG FRONTEND", "{27939E88-1FF0-422C-94BA-4E732DD638F5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IMG SQL", "IMG SQL", "{4134FA18-2636-48A8-983E-08A1F2D221F8}"
 	ProjectSection(SolutionItems) = preProject
 		docker-compose.yml = docker-compose.yml
-		init.sql = init.sql
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. UI", "1. UI", "{D1B75F2C-D524-4996-B33C-1EA295D55443}"

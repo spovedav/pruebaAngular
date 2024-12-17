@@ -12,12 +12,20 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         loadComponent: () => import('./business/dashboard/dashboard.component'),
-        //canActivate: [AuthGuard]
+        data: { title: 'Dashboard' },
+        canActivate: [AuthGuard]
       },
       {
         path: 'persona',
         loadComponent: () => import('./business/persona/persona.component'),
-        //canActivate: [AuthGuard]
+        data: { title: 'Persona' },
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'usuario',
+        loadComponent: () => import('./business/usuario/usuario.component'),
+        data: { title: 'Usuario' },
+        canActivate: [AuthGuard]
       },
       {
         path: '',
@@ -30,7 +38,8 @@ export const routes: Routes = [
   {
     path: 'login',
     loadComponent: () => LoginComponent,//import('./business/authentication/login/login.component'),
-    canActivate: [AuthenticatedGuard]
+    canActivate: [AuthenticatedGuard],
+    data: { title: 'Login' }
   },
   {
     path: '**',

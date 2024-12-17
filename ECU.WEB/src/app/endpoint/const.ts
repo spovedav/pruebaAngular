@@ -6,4 +6,4 @@ export const _isLog = false
 
 // Development
 export const _urlApiAdmim = 'https://localhost:7064/api/'
-export const _urlApiAuth = 'https://localhost:32769/'
+export const _urlApiAuth = 'https://localhost:32771/'

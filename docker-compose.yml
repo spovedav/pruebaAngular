@@ -10,7 +10,7 @@ services:
     ports:
       - "1433:1433"
     networks:
-      - sql_network
+      - app_network
     restart: always
     volumes:
       - sql_data:/var/opt/mssql
@@ -20,8 +20,45 @@ services:
       interval: 10s
       retries: 5
 
+  ecu_api_auth:
+    build:
+      context: .
+      dockerfile: ECU.API.AUTH/Dockerfile
+    container_name: ecu_api_auth
+    ports:
+      - "32771:8080"
+    networks:
+      - app_network
+    depends_on:
+      - sqlserver
+
+  ecu_api_mante:
+    build:
+      context: .
+      dockerfile: ECU.API.MANTE/Dockerfile
+    container_name: ecu_api_mante
+    ports:
+      - "4064:8081"
+    networks:
+      - app_network
+    depends_on:
+      - sqlserver
+
+  ecu_web:
+    build:
+      context: .
+      dockerfile: ECU.WEB/Dockerfile
+    container_name: ecu_web
+    ports:
+      - "4200:80" # Mapea el puerto 80 de Nginx al 4200 del host
+    networks:
+      - app_network
+    depends_on:
+      - ecu_api_auth
+      - ecu_api_mante
+
 networks:
-  sql_network:
+  app_network:
     driver: bridge
 
 volumes:

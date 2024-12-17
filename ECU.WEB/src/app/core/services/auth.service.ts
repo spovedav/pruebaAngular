@@ -27,8 +27,7 @@ export class AuthService {
     return this.httpClient.get<any>(this.LOGIN_URL, { headers }).pipe(
       tap(response => {
 
-        if (response.tieneError) {
-          
+        if (!response.tieneError) {
           this.setToken(response.result.token);
           //LO PUEDO COLOCAR PERO PARA ESTE PROYECTO ESTA DE MÁS
           //this.setRefreshToken(response.refreshToken)
@@ -42,7 +41,8 @@ export class AuthService {
     localStorage.setItem(this.tokenKey, token);
   } 
 
-  private getToken(): string | null {
+  //se que esta en publico,, :v
+  public getToken(): string | null {
     if(typeof window !== 'undefined'){
       return localStorage.getItem(this.tokenKey);
     }else {
@@ -99,8 +99,12 @@ export class AuthService {
       return false;
     }
     const payload = JSON.parse(atob(token.split('.')[1]));
-    const exp = payload.exp * 1000;
-    return Date.now() < exp;
+
+    const _exp = payload['http://schemas.microsoft.com/ws/2008/06/identity/claims/expired'];
+
+    const inputDate = new Date(_exp);
+    const fecha = new Date();
+    return inputDate >= fecha;
   }
 
   logout(): void{

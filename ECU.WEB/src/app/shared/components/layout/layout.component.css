@@ -1,0 +1,6 @@
+.disabled-link {
+  pointer-events: none; /* Evita clics y navegación */
+  color: gray; /* Estilo visual: color gris */
+  text-decoration: none; /* Opcional: elimina subrayado */
+  cursor: default; /* Cambia el cursor */
+}

@@ -11,4 +11,10 @@
     <Folder Include="src\app\business\authentication\register\" />
     <Folder Include="src\app\core\interfaces\usuario\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.dockerignore">
+      <DependentUpon>$(DockerDefaultDockerfile)</DependentUpon>
+      <Link>.dockerignore</Link>
+    </None>
+  </ItemGroup>
 </Project>

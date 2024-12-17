@@ -1,3 +1,52 @@
-<div class="bg-danger">
-   Persona
+<!-- usuario.component.html -->
+<div *ngIf="personaSeleccionada">
+  <h2>Editar Persona</h2>
+  <form (ngSubmit)="guardarPersona()">
+    <div>
+      <label for="nombres">Nombres:</label>
+      <input id="nombres" [(ngModel)]="personaSeleccionada.nombres" name="nombres" required />
+    </div>
+    <div>
+      <label for="apellidos">Apellidos:</label>
+      <input id="apellidos" [(ngModel)]="personaSeleccionada.apellidos" name="apellidos" required />
+    </div>
+    <div>
+      <label for="numeroIdentificacion">Número de Identificación:</label>
+      <input id="numeroIdentificacion" [(ngModel)]="personaSeleccionada.numeroIdentificacion" name="numeroIdentificacion" required />
+    </div>
+    <div>
+      <label for="email">Correo electrónico:</label>
+      <input id="email" [(ngModel)]="personaSeleccionada.email" name="email" type="email" required />
+    </div>
+    <button type="submit">Guardar</button>
+  </form>
+
+  
+
 </div>
+
+<!-- Lista de personas -->
+<h2>Lista de Personas</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombres</th>
+      <th>Apellidos</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let persona of personas">
+      <td>{{ persona.idPersona }}</td>
+      <td>{{ persona.nombres }} {{ persona.apellidos }}</td>
+      <td>
+        <button (click)="editarPersona(persona)">Editar</button>
+        <button (click)="eliminarPersona(persona.idPersona)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<pre>{{ jsonPersona }}</pre>
+

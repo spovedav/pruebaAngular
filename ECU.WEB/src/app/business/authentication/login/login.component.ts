@@ -22,25 +22,19 @@ export class LoginComponent {
   }
 
   login(): void {
-
-    console.log('User:', this.user);  // Agrega console.log para verificar el valor
-    console.log('Password:', this.password);
-
     this.authService.login(this.user, this.password).subscribe({
       next: (response) => {
-        const token = response.token;
+        const token = response.result.token;
         const payload = JSON.parse(atob(token.split('.')[1]));
+        console.log(payload);
         const role = payload.role;
         const mensaje = response.mensaje;
         const tieneError = response.tieneError;
-        if (tieneError) {
-          this.errorMessage = mensaje;
-          return;
-        }
-        if (role === 'admin') {
+        console.log(tieneError);
+        if (!tieneError) {
           this.router.navigate(['/dashboard'])
         } else {
-          this.router.navigate(['/profile'])
+          this.errorMessage = mensaje;
         }
       },
       error: (err) => { this.errorMessage = "Error"; console.error('Login failed', err) }

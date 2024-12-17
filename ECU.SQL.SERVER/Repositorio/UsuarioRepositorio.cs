@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using ECU.APPLICATION.Interfaces.Respositorio;
+using ECU.DOMAIN.Constante;
 using ECU.DOMAIN.DTOs.Usuario;
 using ECU.DOMAIN.Entity.Precedure;
 using Microsoft.Data.SqlClient;
@@ -75,6 +76,14 @@ namespace ECU.SQL.SERVER.Repositorio
 
         public async Task<SEL_UsuarioAutenticationResult> GetUsuario(string UserName, string Passs)
         {
+#if DEBUG
+            var datos = GetDatos();
+
+            var first = datos.Where(x => x.Usuario == UserName).FirstOrDefault();
+
+            return first ?? new SEL_UsuarioAutenticationResult();
+#endif
+
             var parameters = new DynamicParameters();
             parameters.Add("@UserName", UserName, DbType.String);
             parameters.Add("@Pass", Passs, DbType.String);
@@ -86,6 +95,19 @@ namespace ECU.SQL.SERVER.Repositorio
                       );
 
             return result ?? new SEL_UsuarioAutenticationResult();
+        }
+
+        private List<SEL_UsuarioAutenticationResult> GetDatos()
+        {
+            return new List<SEL_UsuarioAutenticationResult>()
+            {
+                new SEL_UsuarioAutenticationResult()
+                {
+                    Identificacion="001",
+                    Rol = (byte)EnumRoles.Admin,
+                    Usuario = "admin"
+                }
+            };
         }
 
         public SEL_Result Update(UsuarioDto request)

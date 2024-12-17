@@ -68,7 +68,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "liveReload": true
+            "liveReload": true,
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
