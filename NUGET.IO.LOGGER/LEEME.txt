@@ -1,0 +1,29 @@
+
+Abre una terminal o consola en la raíz de tu proyecto y ejecuta:
+> nuget pack LocalLogger.nuspec
+
+
+
+******
+EL PAQUETE CREADO PARA ESTA PRUEBA ESTA EN NUGET.IO.LOGGER.1.0.0.nupkg este tiene que ir en la carpte
+
+C:\paquete\NUGET.IO.LOGGER.1.0.0.nupkg
+
+y para entrolarlo en entre los paquetes en backend 
+
+Puedes instalar el paquete local en tu proyecto con:
+
+Copia el archivo .nupkg en una carpeta específica, por ejemplo: C:\paquete.
+
+Configura tu fuente local de NuGet en Visual Studio:
+
+Ve a Herramientas > Opciones > Administrador de paquetes NuGet > Orígenes de paquetes.
+
+Agrega la ruta C:\paquete como un nuevo origen.
+
+Desde el Administrador de paquetes NuGet, instala tu paquete LocalLogger.
+
+
+
+
+

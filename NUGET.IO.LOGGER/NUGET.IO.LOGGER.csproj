@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <AssemblyVersion>1.0</AssemblyVersion>
+    <FileVersion>1.1</FileVersion>
+    <PackageIcon>ico_double.png</PackageIcon>
+    <PackageProjectUrl>micasa.com</PackageProjectUrl>
+    <Description>esto es solo para pruebas</Description>
+    <Company>Double Partner</Company>
+    <Title>NugetDouble</Title>
+    <Authors>marcelo.poveda</Authors>
+    <Product>marcelo.poveda1</Product>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\..\..\..\Downloads\ico_double.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

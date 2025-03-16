@@ -3,6 +3,7 @@ using ECU.APPLICATION.Interfaces.Servicios;
 using ECU.DOMAIN.Constante;
 using ECU.DOMAIN.DTOs;
 using ECU.DOMAIN.DTOs.Autentication;
+using NUGET.IO.LOGGER;
 using Serilog;
 using System.Text;
 
@@ -21,6 +22,10 @@ namespace ECU.APPLICATION.Servicios
 
         public async Task<ResultResponse<AutenticationResponseDto>> AutenticarLoguin(string authorizationHeader)
         {
+            Logger log = new Logger("C:/errorrrrrrrrrrr","double", "error");
+
+            log.Log("Error");
+
             var response = new ResultResponse<AutenticationResponseDto>();
 
             if (string.IsNullOrEmpty(authorizationHeader) || !authorizationHeader.StartsWith("Basic "))

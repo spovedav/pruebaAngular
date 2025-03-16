@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>LocalLogger</id>
+    <version>1.0.0</version>
+    <authors>TuNombre</authors>
+    <description>Un paquete NuGet para guardar logs localmente con ruta configurable.</description>
+    <license type="expression">MIT</license>
+  </metadata>
+  <files>
+    <file src="C\LocalNuGetPackages\LocalLogger.dll" target="lib\netstandard2.0\" />
+  </files>
+</package>
